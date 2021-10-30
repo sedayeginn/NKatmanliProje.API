@@ -1,4 +1,6 @@
-﻿using ApplicationCore.UnitOfWorks;
+﻿using ApplicationCore.Repositories;
+using ApplicationCore.UnitOfWorks;
+using Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +15,12 @@ namespace Data.UnitOfWorks
         {
             _context = context;
         }
+        private ProductRepository _productRepository;
+        private CategoryRepository _categoryRepository;
+        public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(_context);
+
+        public ICategoryRepository categories => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
+
         public void Commit()
         {
             _context.SaveChanges();

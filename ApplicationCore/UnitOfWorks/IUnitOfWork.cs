@@ -8,8 +8,8 @@ namespace ApplicationCore.UnitOfWorks
 {
    public interface IUnitOfWork
     {
-        //IProductRepository Products { get; }
-        //ICategoryRepository categories { get; }
+        IProductRepository Products { get; }
+        ICategoryRepository categories { get; }
         Task CommitAsync();
         void Commit();
     }
