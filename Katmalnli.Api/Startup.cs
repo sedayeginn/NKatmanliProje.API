@@ -1,5 +1,8 @@
+using ApplicationCore.Repository;
+using ApplicationCore.Service;
 using ApplicationCore.UnitOfWorks;
 using Data;
+using Data.Repositories;
 using Data.UnitOfWorks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +33,14 @@ namespace Katmalnli.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
             services.AddControllers();
         }
 
