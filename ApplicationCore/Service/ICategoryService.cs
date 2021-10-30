@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Service
 {
-   public interface ICategoryRepository:IService<Category>
+   public interface ICategoryService:IService<Category>
     {
         Task<Category> GetWithProductsIdAsync(int categoryId);
     }

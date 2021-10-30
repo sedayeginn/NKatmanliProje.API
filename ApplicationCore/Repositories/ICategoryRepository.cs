@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Repositories
 {
-    interface ICategoryRepository :IRepository<Category>
+   public interface ICategoryRepository :IRepository<Category>
     {
         Task<Category> GetWithProductsIdAsync(int categoryId);
     }
