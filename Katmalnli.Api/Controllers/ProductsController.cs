@@ -2,6 +2,7 @@
 using ApplicationCore.Service;
 using AutoMapper;
 using Katmalnli.Api.DTOs;
+using Katmalnli.Api.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -25,22 +26,26 @@ namespace Katmalnli.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            throw new Exception("tüm dataları çekerken hata meydana geldi");
             var products = await _productService.GetAllAsync();
 
             return Ok(_mapper.Map<IEnumerable<ProductDTO>>(products));
         }
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var product = await _productService.GetByIdAsync(id);
             return Ok(_mapper.Map<ProductDTO>(product));
         }
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{id}/category")]
         public async Task<IActionResult> GetCategoryById(int id)
         {
             var product = await _productService.GetCategoryByIdAsync(id);
             return Ok(_mapper.Map<ProductWithCategoryDTO>(product));
         }
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDTO productDTO)
         {
@@ -52,9 +57,11 @@ namespace Katmalnli.Api.Controllers
         [HttpPut]
         public IActionResult Update(ProductDTO productDTO)
         {
+           
             var product = _productService.Update(_mapper.Map<Product>(productDTO));
             return NoContent();
         }
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
