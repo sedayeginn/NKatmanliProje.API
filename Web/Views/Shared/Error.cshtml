@@ -1,0 +1,12 @@
+﻿@model ErrorDTO
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Bire hata meydana geldi.</h1>
+
+@foreach (var item in Model.Errors)
+{
+    <p>@item</p>
+}
+

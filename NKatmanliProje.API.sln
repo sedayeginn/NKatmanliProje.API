@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katmalnli.Api", "Katmalnli.Api\Katmalnli.Api.csproj", "{A030DA69-2CA3-47C4-AEF7-8E96B240C4E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{1AAD35B3-CDD4-49A1-92C4-ABF7B37364CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A030DA69-2CA3-47C4-AEF7-8E96B240C4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A030DA69-2CA3-47C4-AEF7-8E96B240C4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A030DA69-2CA3-47C4-AEF7-8E96B240C4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAD35B3-CDD4-49A1-92C4-ABF7B37364CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAD35B3-CDD4-49A1-92C4-ABF7B37364CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAD35B3-CDD4-49A1-92C4-ABF7B37364CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAD35B3-CDD4-49A1-92C4-ABF7B37364CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
