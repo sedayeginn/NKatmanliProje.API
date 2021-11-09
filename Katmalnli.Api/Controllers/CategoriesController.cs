@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web.ApiService;
 
 namespace Katmalnli.Api.Controllers
 {
@@ -16,6 +17,7 @@ namespace Katmalnli.Api.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
+
         private readonly IMapper _mapper;
         public CategoriesController(ICategoryService categoryService, IMapper mapper)
         {

@@ -1,12 +1,13 @@
 ﻿using ApplicationCore.Entities;
 using AutoMapper;
-using Katmalnli.Api.DTOs;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web.DTOs;
 
-namespace Katmalnli.Api.Mapping
+namespace Web.Mapping
 {
     public class MapProfile :Profile
     {
